@@ -1,0 +1,19 @@
+{
+    "posts": [
+        {
+            "id": 0,
+            "title": "Pinia",
+            "description": "работа с Pinia"
+        },
+        {
+            "id": 1,
+            "title": "Axios",
+            "description": "работа с Axios"
+        },
+        {
+            "id": 2,
+            "title": "json-Server",
+            "description": "работа с json-Server"
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+<script setup>
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
+// получение данных из нашего апи
+let posts = ref();
+let getData = async () => {
+  try{
+    let res = await axios.get('http://localhost:3000/posts');
+    if(res.status === 200){
+      posts.value = res.data;
+      console.log(posts.value);
+    }
+  }catch(error){
+    console.error("данные из апи не получилось достать", error);
+  }
+}
+onMounted(() => {
+  getData();
+})
+
+
+let getTitle = (id) => {
+  console.log(posts.value[id]);
+}
+
+</script>
+
+<template>
+  <main class="content">
+    <header class="header">Mokko&Pinia</header>
+    <section>
+      <h1 class="header">Тут данные из моего MOKKO-API</h1>
+      <div class="posts" v-for="post in posts" :key="post.id">
+        <h1>Title: {{ post.title }}</h1>
+        <h1>Description: {{ post.description }}</h1>
+        <button @click="getTitle(post.id)">Получить Title</button>
+      </div>
+    </section>
+  </main>
+</template>
+
+<style scoped>
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.content{
+	margin: 0 auto;
+  max-width: 1305px;
+}
+
+.header{
+  text-align: center;
+  font-size: 30px;
+}
+
+.posts{
+  border: 1px solid #000;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  transition: 0.3s all;
+}
+.posts:hover{
+  background-color: #000;
+  color: #fff;
+  transition: 0.3s all;
+}
+</style>
