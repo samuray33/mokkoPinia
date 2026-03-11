@@ -1,6 +1,6 @@
 <script setup>
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 
 // получение данных из нашего апи
 let posts = ref();
@@ -20,8 +20,30 @@ onMounted(() => {
 })
 
 
-let getTitle = (id) => {
-  console.log(posts.value[id]);
+// добавление данных 
+let OnAddPost = reactive({
+  title: "",
+  description: ""
+});
+let addPost = async () => {
+  try{
+    if(OnAddPost.title.length > 0 && OnAddPost.description.length > 0){
+      let addpost = await axios.post('http://localhost:3000/posts', {
+        title: OnAddPost.title,
+        description: OnAddPost.description
+      });
+      OnAddPost.title = "";
+      OnAddPost.description = "";
+    }
+    await getData();
+  }catch(error){
+    console.error("не получилось добавить данные", error)
+  }
+}
+
+// для кнопки при нажатии вывести этот обьект
+let getTitle = (index) => {
+  console.log(posts.value[index]);
 }
 
 </script>
@@ -29,12 +51,18 @@ let getTitle = (id) => {
 <template>
   <main class="content">
     <header class="header">Mokko&Pinia</header>
+    <div class="form">
+      <input type="text" v-model="OnAddPost.title" placeholder="title">
+      <input type="text" v-model="OnAddPost.description" placeholder="description">
+      <button @click="addPost">добавить</button>
+    </div>
+    
     <section>
       <h1 class="header">Тут данные из моего MOKKO-API</h1>
-      <div class="posts" v-for="post in posts" :key="post.id">
+      <div class="posts" v-for="(post, index) in posts" :key="post.id">
         <h1>Title: {{ post.title }}</h1>
         <h1>Description: {{ post.description }}</h1>
-        <button @click="getTitle(post.id)">Получить Title</button>
+        <button @click="getTitle(index)">Получить Title</button>
       </div>
     </section>
   </main>
@@ -54,6 +82,29 @@ let getTitle = (id) => {
 .header{
   text-align: center;
   font-size: 30px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+.form input{
+  width: 50%;
+  height: 30px;
+  margin: 5px;
+  font-size: 20px;
+  border-radius: 100px;
+  padding: 5px 10px;
+  border: 1px solid #000;
+}
+.form button{
+  width: 20%;
+  padding: 10px 0px;
+  border-radius: 100px;
+  border: 1px solid #000;
+  cursor: pointer;
 }
 
 .posts{

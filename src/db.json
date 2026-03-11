@@ -1,19 +1,30 @@
 {
-    "posts": [
-        {
-            "id": 0,
-            "title": "Pinia",
-            "description": "работа с Pinia"
-        },
-        {
-            "id": 1,
-            "title": "Axios",
-            "description": "работа с Axios"
-        },
-        {
-            "id": 2,
-            "title": "json-Server",
-            "description": "работа с json-Server"
-        }
-    ]
+  "posts": [
+    {
+      "id": "0",
+      "title": "Pinia",
+      "description": "работа с Pinia"
+    },
+    {
+      "id": "1",
+      "title": "Axios",
+      "description": "работа с Axios"
+    },
+    {
+      "id": "2",
+      "title": "json-Server",
+      "description": "работа с json-Server"
+    },
+    {
+      "id": "3",
+      "title": "Добавочные данные",
+      "description": "эти данные я добавил через аксиос"
+    },
+    {
+      "id": "9d09",
+      "title": "доб данные ",
+      "description": "а эти уже через формочку "
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
