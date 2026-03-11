@@ -34,8 +34,10 @@ let addPost = async () => {
       });
       OnAddPost.title = "";
       OnAddPost.description = "";
+      await getData();
+    }else{
+      alert("Не все поля заполнены");
     }
-    await getData();
   }catch(error){
     console.error("не получилось добавить данные", error)
   }
