@@ -1,29 +1,28 @@
 {
-  "posts": [
+  "users": [
     {
       "id": "0",
-      "title": "Pinia",
-      "description": "работа с Pinia"
+      "name": "Djon",
+      "surname": "Djon",
+      "patronymic": "Djon",
+      "email": "djon@gmail.com",
+      "password": "djonpassword"
     },
     {
       "id": "1",
-      "title": "Axios",
-      "description": "работа с Axios"
+      "name": "Anna",
+      "surname": "Anna",
+      "patronymic": "Anna",
+      "email": "anna@gmail.com",
+      "password": "annapassword"
     },
     {
-      "id": "2",
-      "title": "json-Server",
-      "description": "работа с json-Server"
-    },
-    {
-      "id": "3",
-      "title": "Добавочные данные",
-      "description": "эти данные я добавил через аксиос"
-    },
-    {
-      "id": "9d09",
-      "title": "доб данные ",
-      "description": "а эти уже через формочку "
+      "id": "b991",
+      "name": "Николос",
+      "surname": "Никиланджела ",
+      "patronymic": "Никиланджелов",
+      "email": "niki@gmail.com",
+      "password": "ninki"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
