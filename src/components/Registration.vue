@@ -7,7 +7,7 @@ const router = useRouter();
 
 // переход на страницу со входом 
 let entrance = () => {
-    router.push('./Entrance');
+    router.push('/Entrance');
 }
 
 // добавление данных на сервер через axios
@@ -41,7 +41,7 @@ let AddUser = async () => {
             OnAddUser.patronymic = "";
             OnAddUser.email = "";
             OnAddUser.password = "";
-            router.push('./Entrance');
+            await router.push('./Entrance');
         }else{
             alert("Не все поля заполнены")
         }
@@ -91,25 +91,30 @@ let AddUser = async () => {
 }
 
 .form{
-    margin-top: 7%;
-    width: 40%;
+    margin-top: 20vh;
+    width: 60vh;
     border-radius: 10px;
-    padding: 20px 40px;
+    padding: 4vh 8vh;
     box-shadow: 0px 0px 10px rgb(55, 124, 55);
 }
 
 h1{
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 4vh;
+    font-size: 5vh;
+}
+
+h2{
+    font-size: 3.5vh;
 }
 
 input{
-    width: 100%;
-    height: 30px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    padding: 5px 10px;
-    font-size: 15px;
+    width: 57vh;
+    height: 5vh;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    padding: 1vh 2vh;
+    font-size: 2.5vh;
     border-radius: 10px;
     border: 1px solid #000;
     outline:none;
@@ -119,26 +124,26 @@ input{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0px 0px 0px;
+    margin: 2vh 0px 0px 0px;
 }
 .entrance{
     background-color: rgb(55, 124, 55);
     color: #fff;
     border: none;
-    width: 30%;
-    padding: 10px 0px;
-    font-size: 15px;
+    width: 20vh;
+    padding: 1.5vh 0vh;
+    font-size: 2.5vh;
     border-radius: 10px;
-    margin: 10px;
+    margin: 1vh;
     cursor: pointer;
 }
 .registration{
     background-color: rgb(111, 128, 52);
     color: #fff;
     border: none;
-    width: 30%;
-    padding: 10px 0px;
-    font-size: 15px;
+    width: 20vh;
+    padding: 1.5vh 0vh;
+    font-size: 2.5vh;
     border-radius: 10px;
     margin: 10px;
     cursor: pointer;

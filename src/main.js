@@ -7,19 +7,23 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
-            name: "Home",
-            path: "/",
-            component: () => import('@/App.vue'),
+            path: '/', //это начальный роут
+            redirect: '/Entrance'
         },
         {
-            name: "/Registration",
+            name: "Registration",
             path: "/Registration",
             component: () => import('@/components/Registration.vue'),
         },
         {
-            name: "/Entrance",
+            name: "Entrance",
             path: "/Entrance",
             component: () => import('@/components/Entrance.vue'),
+        },
+        {
+            name: "Dashboard",
+            path: "/Dashboard",
+            component: () => import('@/components/Dashboard.vue'),
         },
     ]
 });
