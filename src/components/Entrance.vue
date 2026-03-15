@@ -2,6 +2,10 @@
 import axios from 'axios';
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import { useUserStore } from '@/Stores/StoreDashboard';
+
+let user = useUserStore();
+user.aside = false;
 
 const router = useRouter();
 
@@ -26,8 +30,18 @@ let Entrance = async () => {
         let getUsers = response.data; 
         let authorization = getUsers.find((user) => user.email == OnEntrance.email && user.password == OnEntrance.password)
         if(authorization){
+            // добавляем эти данные в стор
             console.log(authorization);
-            router.push('/Dashboard');
+            user.$id = authorization.id;
+            user.name = authorization.name;
+            user.surname = authorization.surname;
+            user.patronymic = authorization.patronymic;
+            user.email = authorization.email;
+            user.password = authorization.password;
+            // включаем левый борд
+            user.aside = true;
+
+            await router.push('/Dashboard');
         }else{
             alert("Проверьте логин и пароль");
             OnEntrance.email = "";

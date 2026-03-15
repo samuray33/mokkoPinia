@@ -1,8 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { createPinia } from 'pinia';
 
 import { createApp } from 'vue';
 import App from './App.vue';
 
+// тут наша пиниа
+const pinia = createPinia()
+
+// тут наш роутер
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -25,7 +30,17 @@ const router = createRouter({
             path: "/Dashboard",
             component: () => import('@/components/Dashboard.vue'),
         },
+        {
+            name: "AddPost",
+            path: "/AddPost",
+            component: () => import('@/components/AddPost.vue'),
+        },
+        {
+            name: "Posts",
+            path: "/Posts",
+            component: () => import('@/components/Posts.vue'),
+        }
     ]
 });
 
-createApp(App).use(router).mount('#app');
+createApp(App).use(pinia).use(router).mount('#app');

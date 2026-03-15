@@ -6,21 +6,13 @@
   if(user.name.length <= 0 || user.surname.length <= 0 || user.patronymic.length <= 0){
     router.push('/');
   }
-
-  // присвоение значений из model в store
-  let name = user.name;
-  let surname = user.surname;
-  let patronymic = user.patronymic;
+  
 </script>
 
 <template>
   <main>
     <section class="content">
-      <section class="info">
-        <h1 class="name">{{ name }} {{ surname }} {{ patronymic }}</h1>
-        <div class="line"></div>
-      </section>
-      <router-view />
+      
     </section>
   </main>
 </template>
@@ -32,16 +24,9 @@
 }
 
 .content{
-	margin: 0;
+  margin: 0;
   width: 140vh;
   margin-top: 11vh;
+}
 
-}
-.name{
-  padding: 0vh 0vh 1vh 3vh; 
-  font-size: 5vh;
-}
-.line{
-  border-bottom: 1px solid #000;
-}
 </style>

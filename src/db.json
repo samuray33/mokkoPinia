@@ -25,12 +25,19 @@
       "password": "ninki"
     },
     {
-      "id": "db58",
+      "id": "de41",
       "name": "1",
       "surname": "1",
       "patronymic": "1",
-      "email": "1@gmail.com",
+      "email": "1",
       "password": "1"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "какой то пост",
+      "description": "какое то описание"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

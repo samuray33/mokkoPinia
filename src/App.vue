@@ -1,22 +1,27 @@
 <script setup>
   import { useRouter } from 'vue-router';
-  import { ref } from 'vue';
+  import { useUserStore } from './Stores/StoreDashboard';
 
+  let user = useUserStore();
   const router = useRouter();
 
-  let aside = ref(false);
+  // проверка если обновили страницу нужно перекинуть на страницу авторизации
+  if(user.name.length <= 0 || user.surname.length <= 0 || user.patronymic.length <= 0){
+    router.push('/');
+  }
+
 </script>
 
 <template>
   <header class="header"><h1>Snake</h1></header>
   <div class="main">
-    <aside v-if="aside">
+    <aside v-if="user.aside">
       <h1>Панель навигации</h1>
       <div class="navigation">
-        <h3>Личный кабинет</h3>
-        <h3>Добавить пост</h3>
-        <h3>Посты</h3>
-        <h3>Выйте из аккаунта</h3>
+        <h3 @click="router.push('/Dashboard')">Личный кабинет</h3>
+        <h3 @click="router.push('/AddPost')">Добавить пост</h3>
+        <h3 @click="router.push('/Posts')">Посты</h3>
+        <h3 @click="router.push('/')">Выйте из аккаунта</h3>
       </div>
     </aside>
   
@@ -69,6 +74,7 @@ aside{
 }
 .navigation{
   margin-top: 2vh;
+  
 }
 .navigation h3{
   margin-top: 1vh;
