@@ -31,13 +31,40 @@
       "patronymic": "1",
       "email": "1",
       "password": "1"
+    },
+    {
+      "id": "3601",
+      "name": "2",
+      "surname": "2",
+      "patronymic": "2",
+      "email": "2",
+      "password": "2"
     }
   ],
   "posts": [
     {
-      "id": 1,
-      "title": "какой то пост",
-      "description": "какое то описание"
+      "id": "e3e0",
+      "idUser": "de41",
+      "title": "ну тут какой то пост первого 1",
+      "description": "тут содержание этого поста "
+    },
+    {
+      "id": "1806",
+      "idUser": "de41",
+      "title": "тут еще одно для первого 1",
+      "description": "тут снова содержание первого"
+    },
+    {
+      "id": "27e4",
+      "idUser": "3601",
+      "title": "тут пост второго 2",
+      "description": "тут содержание второго "
+    },
+    {
+      "id": "bc92",
+      "idUser": "3601",
+      "title": "тут еще один пост второго 2",
+      "description": "тут еще одно содержание второго"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

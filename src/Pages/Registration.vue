@@ -2,6 +2,9 @@
 import axios from 'axios';
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useUserStore } from '@/Stores/StoreDashboard';
+
+let user = useUserStore();
 
 const router = useRouter();
 
@@ -28,7 +31,7 @@ let AddUser = async () => {
             OnAddUser.email.length > 0 &&
             OnAddUser.password.length > 0
         ){
-            await axios.post('http://localhost:3000/users', {
+            await axios.post(user.usersURL, {
                 name: OnAddUser.name,
                 surname: OnAddUser.surname,
                 patronymic: OnAddUser.patronymic,

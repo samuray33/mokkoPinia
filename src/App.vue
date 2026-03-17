@@ -1,6 +1,7 @@
 <script setup>
   import { useRouter } from 'vue-router';
   import { useUserStore } from './Stores/StoreDashboard';
+import { watch } from 'vue';
 
   let user = useUserStore();
   const router = useRouter();
@@ -8,6 +9,12 @@
   // проверка если обновили страницу нужно перекинуть на страницу авторизации
   if(user.name.length <= 0 || user.surname.length <= 0 || user.patronymic.length <= 0){
     router.push('/');
+  }
+
+  // Выход из аккаунта
+  let exit = () => {
+    router.push('/');
+    window.location.reload();
   }
 
 </script>
@@ -21,7 +28,7 @@
         <h3 @click="router.push('/Dashboard')">Личный кабинет</h3>
         <h3 @click="router.push('/AddPost')">Добавить пост</h3>
         <h3 @click="router.push('/Posts')">Посты</h3>
-        <h3 @click="router.push('/')">Выйте из аккаунта</h3>
+        <h3 @click="exit">Выйте из аккаунта</h3>
       </div>
     </aside>
   

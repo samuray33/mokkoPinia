@@ -26,7 +26,7 @@ let Entrance = async () => {
             alert("Не все поля заполнены");
             return;
         }
-        let response = await axios.get('http://localhost:3000/users');
+        let response = await axios.get(user.usersURL);
         let getUsers = response.data; 
         let authorization = getUsers.find((user) => user.email == OnEntrance.email && user.password == OnEntrance.password)
         if(authorization){

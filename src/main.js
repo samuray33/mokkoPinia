@@ -18,27 +18,27 @@ const router = createRouter({
         {
             name: "Registration",
             path: "/Registration",
-            component: () => import('@/components/Registration.vue'),
+            component: () => import('@/Pages/Registration.vue'),
         },
         {
             name: "Entrance",
             path: "/Entrance",
-            component: () => import('@/components/Entrance.vue'),
+            component: () => import('@/Pages/Entrance.vue'),
         },
         {
             name: "Dashboard",
             path: "/Dashboard",
-            component: () => import('@/components/Dashboard.vue'),
+            component: () => import('@/Pages/Dashboard.vue'),
         },
         {
             name: "AddPost",
             path: "/AddPost",
-            component: () => import('@/components/AddPost.vue'),
+            component: () => import('@/Pages/AddPost.vue'),
         },
         {
             name: "Posts",
             path: "/Posts",
-            component: () => import('@/components/Posts.vue'),
+            component: () => import('@/Pages/Posts.vue'),
         }
     ]
 });

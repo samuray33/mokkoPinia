@@ -12,6 +12,9 @@ export const useUserStore = defineStore('User', () => {
 //   это для true / false aside
   let aside = ref(false);
 
+  // тут наша api
+  let usersURL = 'http://localhost:3000/users';
+  let postsURL = 'http://localhost:3000/posts';
 
 
   // GETTERS (вычисляемые свойства)
@@ -24,6 +27,6 @@ export const useUserStore = defineStore('User', () => {
     
 //   }
 
-//   return { count, doubleCount, increment }
-  return { id, name, surname, patronymic, email, password, aside}
+//   return { count, chtoto, increment }
+  return { id, name, surname, patronymic, email, password, aside, usersURL, postsURL}
 })
