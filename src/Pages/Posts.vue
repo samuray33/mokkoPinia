@@ -3,6 +3,12 @@
   import { ref } from 'vue';
   import axios from 'axios';
   import { useRouter } from 'vue-router';
+  import Post from '@/Components/Post.vue';
+
+  let showPost = ref(false);
+  let showPostBool = (data) => {
+    showPost.value = data;
+  }
 
   let router = useRouter();
   let user = useUserStore();
@@ -10,6 +16,21 @@
   // проверка если обновили страницу нужно перекинуть на страницу авторизации
   if(user.name.length <= 0 || user.surname.length <= 0 || user.patronymic.length <= 0){
     router.push('/');
+  }
+
+  // данные для пропсов
+  let propsId = ref("");
+  let propsIdUser = ref("");
+  let propsTitle = ref("");
+  let propsDescription = ref("");
+  // открытие поста
+  let getInfoPost = (id, idUser, title, description) => {
+    propsId.value = id;
+    propsIdUser.value = idUser;
+    propsTitle.value = title;
+    propsDescription = description;
+
+    showPost.value = true;
   }
 
   // проверяем есть посты
@@ -27,17 +48,22 @@
 </script>
 
 <template>
-  <main>
-    <section class="content">
+  <main class="content">
+    <section v-if="!showPost">
       <h1 class="header">Посты</h1>
 
       <div class="line"></div>
 
       <h1 v-if="onPosts.length <= 0" class="errorPost"> У вас пока нету постов </h1>
 
-      <div class="post" v-for="post in onPosts" :key="post.id">
+      <div  class="post" v-for="post in onPosts" :key="post.id">
+        <div @click="getInfoPost(post.id, post.idUser, post.title, post.description)">
           <h1 class="postTitle">{{ post.title }}</h1>
         </div>
+      </div>
+    </section>
+    <section v-if="showPost">
+      <post :propsId :propsIdUser :propsTitle :propsDescription :showPost @show-post="showPostBool"/>
     </section>
   </main>
 </template>

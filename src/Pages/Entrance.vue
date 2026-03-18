@@ -31,7 +31,7 @@ let Entrance = async () => {
         let authorization = getUsers.find((user) => user.email == OnEntrance.email && user.password == OnEntrance.password)
         if(authorization){
             // добавляем эти данные в стор
-            console.log(authorization);
+            // console.log(authorization);
             user.$id = authorization.id;
             user.name = authorization.name;
             user.surname = authorization.surname;

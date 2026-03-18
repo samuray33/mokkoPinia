@@ -1,7 +1,6 @@
 <script setup>
   import { useRouter } from 'vue-router';
   import { useUserStore } from './Stores/StoreDashboard';
-import { watch } from 'vue';
 
   let user = useUserStore();
   const router = useRouter();
@@ -28,7 +27,7 @@ import { watch } from 'vue';
         <h3 @click="router.push('/Dashboard')">Личный кабинет</h3>
         <h3 @click="router.push('/AddPost')">Добавить пост</h3>
         <h3 @click="router.push('/Posts')">Посты</h3>
-        <h3 @click="exit">Выйте из аккаунта</h3>
+        <h3 @click="exit" style="background-color: rgb(245, 124, 124); color: #fff;">Выйте из аккаунта</h3>
       </div>
     </aside>
   

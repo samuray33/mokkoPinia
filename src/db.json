@@ -31,14 +31,6 @@
       "patronymic": "1",
       "email": "1",
       "password": "1"
-    },
-    {
-      "id": "3601",
-      "name": "2",
-      "surname": "2",
-      "patronymic": "2",
-      "email": "2",
-      "password": "2"
     }
   ],
   "posts": [
@@ -49,22 +41,16 @@
       "description": "тут содержание этого поста "
     },
     {
-      "id": "1806",
+      "id": "e13e",
       "idUser": "de41",
-      "title": "тут еще одно для первого 1",
-      "description": "тут снова содержание первого"
+      "title": "Какой то пост",
+      "description": "Какое то содержание"
     },
     {
-      "id": "27e4",
-      "idUser": "3601",
-      "title": "тут пост второго 2",
-      "description": "тут содержание второго "
-    },
-    {
-      "id": "bc92",
-      "idUser": "3601",
-      "title": "тут еще один пост второго 2",
-      "description": "тут еще одно содержание второго"
+      "id": "3650",
+      "idUser": "b991",
+      "title": "что то",
+      "description": "ninkiвмпыаываыва"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
