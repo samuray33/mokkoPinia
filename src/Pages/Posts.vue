@@ -54,7 +54,7 @@
 
       <div class="line"></div>
 
-      <h1 v-if="onPosts.length <= 0" class="errorPost"> У вас пока нету постов </h1>
+      <h1 v-if="onPosts.length <= 0" class="errorPost"> Пока нету постов </h1>
 
       <div  class="post" v-for="post in onPosts" :key="post.id">
         <div @click="getInfoPost(post.id, post.idUser, post.title, post.description)">
@@ -78,6 +78,7 @@
   margin: 0;
   width: 140vh;
   margin-top: 11vh;
+  overflow-wrap: break-word; 
 }
 
 .line{

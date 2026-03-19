@@ -101,6 +101,7 @@
 	margin: 0;
   width: 140vh;
   margin-top: 11vh;
+  overflow-wrap: break-word; 
 
 }
 .name{

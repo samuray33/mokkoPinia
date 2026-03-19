@@ -15,6 +15,7 @@ export const useUserStore = defineStore('User', () => {
   // тут наша api
   let usersURL = 'http://localhost:3000/users';
   let postsURL = 'http://localhost:3000/posts';
+  let commentsURL = 'http://localhost:3000/comments';
 
 
   // GETTERS (вычисляемые свойства)
@@ -28,5 +29,5 @@ export const useUserStore = defineStore('User', () => {
 //   }
 
 //   return { count, chtoto, increment }
-  return { id, name, surname, patronymic, email, password, aside, usersURL, postsURL}
+  return { id, name, surname, patronymic, email, password, aside, usersURL, postsURL, commentsURL}
 })
