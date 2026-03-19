@@ -42,7 +42,7 @@
   // удаление поста
   let delPost = async (id) => {
     try{
-      await axios.delete(`${user.postsURL}/${id}`);
+      await axios.delete(`${user.postsURL}/${id}`); // *************
       await AnyPosts();
     }catch(error){
       alert(error);

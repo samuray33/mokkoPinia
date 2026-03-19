@@ -1,6 +1,6 @@
 <script setup>
   import { useUserStore } from '@/Stores/StoreDashboard';
-  import { ref } from 'vue';
+  import { onMounted, ref, computed, watch } from 'vue';
   import axios from 'axios';
   import { useRouter } from 'vue-router';
   import Post from '@/Components/Post.vue';
@@ -28,7 +28,7 @@
     propsId.value = id;
     propsIdUser.value = idUser;
     propsTitle.value = title;
-    propsDescription = description;
+    propsDescription.value = description;
 
     showPost.value = true;
   }
@@ -44,7 +44,23 @@
       alert(error);
     }
   }
-  AnyPosts();
+  onMounted(() => {
+    AnyPosts();
+  });
+
+  // поиск
+  let search = ref("");
+  let answer = computed(() => {
+    if(search.value.length == 0){
+      return onPosts.value;
+    }
+    const searchTerm = search.value.toLowerCase().trim();
+    return onPosts.value.filter((post) => 
+      post.title.toLowerCase().includes(searchTerm)
+    );
+    // includes - даже если часть совпала возврашает true
+  });
+  
 </script>
 
 <template>
@@ -54,9 +70,11 @@
 
       <div class="line"></div>
 
+      <input v-model="search" class="search" type="text" placeholder="Поиск">
+
       <h1 v-if="onPosts.length <= 0" class="errorPost"> Пока нету постов </h1>
 
-      <div  class="post" v-for="post in onPosts" :key="post.id">
+      <div  class="post" v-for="post in answer" :key="post.id">
         <div @click="getInfoPost(post.id, post.idUser, post.title, post.description)">
           <h1 class="postTitle">{{ post.title }}</h1>
         </div>
@@ -84,6 +102,19 @@
 .line{
   border-bottom: 1px solid #000;
 }
+
+.search{
+  width: 131vh;
+  font-size: 3vh;
+  margin-left: 2.5vh;
+  padding: 1vh 2vh;
+  border-radius: 1vh;
+  outline:none;
+  border: 0.1vh solid #000;
+  margin: 2vh 3vh;
+  background-color: rgb(238, 250, 184);
+}
+
 .errorPost{
   font-size: 3vh;
 }

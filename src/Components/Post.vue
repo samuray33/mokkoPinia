@@ -31,7 +31,7 @@
       let resData = res.data;
       
       let filtCom = resData.filter((com) => com.idPost == props.propsId);
-      comments.value = filtCom;
+      comments.value = filtCom.reverse();
     }catch(error){
       alert(error);
     }

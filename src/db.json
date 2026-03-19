@@ -57,6 +57,18 @@
       "idUser": "4454",
       "idPost": "8b22",
       "comment": "Хорошее произведение"
+    },
+    {
+      "id": "80d7",
+      "idUser": "6349",
+      "idPost": "8b22",
+      "comment": "Ваше имба"
+    },
+    {
+      "id": "be05",
+      "idUser": "6349",
+      "idPost": "0567",
+      "comment": "Гуд "
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
